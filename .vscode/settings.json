@@ -1,0 +1,9 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "tailwind*": "postcss*",
+    "next.config.ts": ".eslint*, eslint*, .prettier*, prettier*, .lintstaged*, lintstaged*"
+  }
+}
