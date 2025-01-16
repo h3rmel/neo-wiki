@@ -157,9 +157,15 @@ module.exports = {
         leadingUnderscore: 'allow',
       },
       {
+        selector: ['typeProperty', 'objectLiteralProperty'],
+        format: ['camelCase', 'UPPER_CASE', 'snake_case'],
+        leadingUnderscore: 'allow',
+      },
+      {
         // const / let / var variables name.
         selector: 'variable',
         format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+        leadingUnderscore: 'allow',
       },
       {
         // Any function parameters
@@ -177,6 +183,7 @@ module.exports = {
         // Matches class, enum, interface, typeAlias and typeParameter
         selector: 'typeLike',
         format: ['PascalCase'],
+        leadingUnderscore: 'allow',
       },
     ],
     '@typescript-eslint/no-shadow': 'off',
@@ -222,8 +229,8 @@ module.exports = {
      */
     // "react-refresh/only-export-components": "warn",
     /**
-     * JSDoc and TSDoc rules
-     * @see https://github.com/gajus/eslint-plugin-jsdoc && https://github.com/microsoft/tsdoc
+     * JSDoc
+     * @see https://github.com/gajus/eslint-plugin-jsdoc
      */
     'jsdoc/require-throws': 'error',
     'jsdoc/check-indentation': 'warn',
@@ -234,26 +241,7 @@ module.exports = {
     'jsdoc/check-syntax': 'warn',
     'jsdoc/tag-lines': ['warn', 'never', { startLines: 1 }],
     'jsdoc/require-param': ['warn', { checkDestructuredRoots: false }],
-    'jsdoc/require-jsdoc': [
-      'warn',
-      {
-        publicOnly: true,
-        require: {
-          FunctionDeclaration: true,
-          FunctionExpression: true,
-          ArrowFunctionExpression: true,
-          ClassDeclaration: true,
-          ClassExpression: true,
-          MethodDefinition: true,
-        },
-        contexts: [
-          "TSTypeAliasDeclaration",
-          // Encourage documenting React prop types
-          "TSPropertySignature",
-        ],
-        enableFixer: true,
-      },
-    ],
+    'jsdoc/require-jsdoc': 'off',
     'jsdoc/check-tag-names': ['warn', { definedTags: ['remarks', 'privateRemarks'] }],
     // TSDoc checks this syntax
     'jsdoc/require-hyphen-before-param-description': 'off',
