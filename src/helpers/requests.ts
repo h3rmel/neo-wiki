@@ -7,7 +7,7 @@ type RequestConfig = {
   headers?: AxiosHeaders;
 };
 
-export async function get<T>(endpoint: string, config: RequestConfig = {}): Promise<T> {
+async function getRequest<T>(endpoint: string, config: RequestConfig = {}): Promise<T> {
   const response: AxiosResponse<T> = await apiClient.get(endpoint, {
     params: config.params,
     headers: config.headers,
@@ -15,3 +15,5 @@ export async function get<T>(endpoint: string, config: RequestConfig = {}): Prom
 
   return response.data;
 }
+
+export { getRequest };
